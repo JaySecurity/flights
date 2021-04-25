@@ -11,8 +11,13 @@
         <th>Departure</th>
       </tr>
         <tbody>
-          <% flights.forEach(function(f){ %>
-          <tr>
+          <% flights.forEach(function(f){ 
+             if (f.departs.valueOf() < Date.now()){ %>
+              <tr style="color:red">
+            <% }else{
+              console.log('No')%>
+              
+              %> <tr><%}%>          
             <td><%= f.airline %></td>
             <td><%= f.airport %></td>
             <td><%= f.flightNo %></td>

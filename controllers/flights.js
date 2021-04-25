@@ -3,7 +3,7 @@ const Flight = require('../models/flight');
 async function getAll(req, res, next) {
   res.render('flights/index', {
     title: 'All Flights',
-    flights: await Flight.find({}),
+    flights: await Flight.find({}).sort('departs'),
   });
 }
 
