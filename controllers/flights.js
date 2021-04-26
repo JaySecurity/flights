@@ -15,14 +15,22 @@ async function create(req, res) {
   try {
     if (!req.body.departs) delete req.body.departs;
     let flight = new Flight(req.body);
-    console.log(req.body.departs);
     flight = await flight.save();
-    console.log(flight.departs);
     res.redirect('/flights');
   } catch (err) {
-    console.log(err);
     res.send(err.message);
   }
 }
 
-module.exports = { getAll, newFlight, create };
+async function showFlight(req, res) {
+  try {
+    res.render('flights/showFlight', {
+      title: 'Flight Details',
+      flight: await Flight.findById(req.params.id),
+    });
+  } catch (e) {
+    res.send(e.message);
+  }
+}
+
+module.exports = { getAll, newFlight, create, showFlight };
