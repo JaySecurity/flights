@@ -7,10 +7,10 @@
       Departs: <%= flight.airport%> on <%= flight.departs.toLocaleDateString()
       %> - <%= flight.departs.toLocaleTimeString() %>
     </h2>
-    <% if (flight.destinations.length > 0){%>
     <div class="row">
       <div class="group">
         <h2>Destinations:</h2>
+        <% if (flight.destinations.length > 0){%>
         <table>
           <thead>
             <tr>
@@ -87,7 +87,6 @@
         </form>
       </div>
       <div class="group">
-        <h3>Add Ticket</h3>
         <a class="add-ticket" href="/flights/<%= flight._id %>/tickets/new">Add a Ticket</a>
       </div>
     </div>

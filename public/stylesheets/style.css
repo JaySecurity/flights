@@ -63,7 +63,8 @@ table td {
   min-width: 150px;
 }
 
-td a {
+td a,
+.add-ticket {
   padding: 5px 10px;
   font-size: 16px;
   border: 1px solid black;
